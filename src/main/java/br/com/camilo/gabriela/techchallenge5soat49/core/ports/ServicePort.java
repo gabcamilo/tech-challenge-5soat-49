@@ -9,8 +9,7 @@ import java.util.List;
 
 public interface ServicePort <T extends BaseDomain, V extends ValidationPort, G extends PersistencePort> {
     T create(T domain) throws DomainConstraintException;
-    T update(T domain, String id) throws DomainConstraintException;
+    T update(T updatedData, T persistedData) throws DomainConstraintException;
     T get(String id) throws DataValidationException;
-    void delete(String id) throws DataValidationException;
     List<T> list();
 }

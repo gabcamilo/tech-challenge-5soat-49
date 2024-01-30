@@ -9,5 +9,5 @@ public interface CustomerValidationPort extends ValidationPort<Customer, Custome
 
     void validateUniqueEmail(String email, CustomerPersistencePort customerPersistencePort) throws DataValidationException;
 
-    void validateCreationalBusinessRules(Customer customer, CustomerPersistencePort persistencePort) throws IllegalArgumentException;
+    void validateCreationalBusinessRules(Customer customer, CustomerPersistencePort persistencePort) throws DataValidationException;
 }

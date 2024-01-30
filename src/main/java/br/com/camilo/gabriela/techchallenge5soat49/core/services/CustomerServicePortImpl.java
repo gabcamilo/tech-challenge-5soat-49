@@ -8,6 +8,7 @@ import br.com.camilo.gabriela.techchallenge5soat49.core.ports.customer.CustomerS
 import br.com.camilo.gabriela.techchallenge5soat49.core.ports.customer.CustomerValidationPort;
 
 import java.util.List;
+import java.util.Optional;
 
 public class CustomerServicePortImpl implements CustomerServicePort {
 
@@ -30,28 +31,30 @@ public class CustomerServicePortImpl implements CustomerServicePort {
     }
 
     @Override
-    public Customer update(Customer domain, String id) throws DomainConstraintException {
-        return null;
+    public Customer update(Customer updatedData, Customer persistedData) throws DomainConstraintException {
+        validationPort.validateUpdateBusinessRules(updatedData, persistedData, persistencePort);
+        Customer update = persistedData.update(updatedData);
+        return persistencePort.save(update);
     }
+
 
     @Override
     public Customer get(String id) throws DataValidationException {
-        return null;
-    }
-
-    @Override
-    public void delete(String id) throws DataValidationException {
-
+        Optional<Customer> customer = persistencePort.get(id);
+        customer.orElseThrow(() -> new DataValidationException("Customer not found"));
+        return customer.get();
     }
 
     @Override
     public List<Customer> list() {
-        return null;
+        return persistencePort.list();
     }
 
     @Override
     public Customer getCustomerByCpf(String cpf) throws DataValidationException {
-        return null;
+        Optional<Customer> customer = persistencePort.getCustomerByCpf(cpf);
+        customer.orElseThrow(() -> new DataValidationException("Customer not found"));
+        return customer.get();
     }
 }
 

@@ -17,13 +17,13 @@ public class CustomerValidationPortImpl implements CustomerValidationPort {
     }
 
     @Override
-    public void validateCreationalBusinessRules(Customer customer, CustomerPersistencePort persistencePort) throws IllegalArgumentException {
+    public void validateCreationalBusinessRules(Customer customer, CustomerPersistencePort persistencePort) throws DataValidationException {
         validateUniqueCpf(customer.getCpf(), persistencePort);
         validateUniqueEmail(customer.getEmail(), persistencePort);
     }
 
     @Override
-    public void validateUpdateBusinessRules(Customer updatedData, Customer customer, CustomerPersistencePort persistencePort) throws IllegalArgumentException {
+    public void validateUpdateBusinessRules(Customer updatedData, Customer customer, CustomerPersistencePort persistencePort) throws DataValidationException {
         if (!customer.getCpf().equals(updatedData.getCpf())) {
             throw new DataValidationException("CPF cannot be changed");
         }
