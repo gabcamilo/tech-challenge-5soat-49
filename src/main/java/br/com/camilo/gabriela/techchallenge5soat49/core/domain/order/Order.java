@@ -1,33 +1,39 @@
 package br.com.camilo.gabriela.techchallenge5soat49.core.domain.order;
 
 import br.com.camilo.gabriela.techchallenge5soat49.core.domain.BaseDomain;
-import br.com.camilo.gabriela.techchallenge5soat49.core.domain.customer.Customer;
+import br.com.camilo.gabriela.techchallenge5soat49.core.domain.customer.EventualCustomer;
 import br.com.camilo.gabriela.techchallenge5soat49.core.domain.payment.Payment;
 import br.com.camilo.gabriela.techchallenge5soat49.core.domain.payment.PaymentStatus;
 import br.com.camilo.gabriela.techchallenge5soat49.core.domain.product.Product;
+import br.com.camilo.gabriela.techchallenge5soat49.core.exceptions.DomainConstraintException;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 public class Order extends BaseDomain {
+    @NotNull
+    private final EventualCustomer customer;
 
-    private final Optional<Customer> customer;
-
+    @Size(min = 1)
     private final List<OrderProduct> items;
 
+    @NotNull
     private final Payment payment;
 
+    @NotBlank
     private final PaymentStatus paymentStatus;
 
     private final String note;
 
+    @NotNull
     private final BigDecimal total;
 
-    public Order(String id, LocalDateTime createdAt, LocalDateTime updatedAt, Optional<Customer> customer, List<OrderProduct> items, Payment payment, String note, BigDecimal total) {
+    private <T extends EventualCustomer> Order(String id, LocalDateTime createdAt, LocalDateTime updatedAt, T customer, List<OrderProduct> items, Payment payment, String note, BigDecimal total) throws DomainConstraintException {
         super(id, createdAt, updatedAt);
         this.customer = customer;
         this.items = items;
@@ -35,9 +41,15 @@ public class Order extends BaseDomain {
         this.paymentStatus = payment.getStatus();
         this.note = note;
         this.total = total;
+
+        this.isValid();
     }
 
-    public Order update(Order order) {
+    public static <T extends EventualCustomer> Order createNew(T customer, List<OrderProduct> items, Payment payment, String note, BigDecimal total) throws DomainConstraintException {
+        return new Order(null, LocalDateTime.now(), LocalDateTime.now(), customer, items, payment, note, total);
+    }
+
+    public Order update(Order order) throws DomainConstraintException {
         return new Order(
                 getId(),
                 getCreatedAt(),
@@ -50,7 +62,7 @@ public class Order extends BaseDomain {
         );
     }
 
-    public Optional<Customer> getCustomer() {
+    public EventualCustomer getCustomer() {
         return customer;
     }
 
