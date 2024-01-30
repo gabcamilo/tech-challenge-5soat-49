@@ -10,7 +10,7 @@ public class EventualCustomer extends BaseDomain {
     @NotBlank
     private final String name;
 
-    protected EventualCustomer(String id, LocalDateTime createdAt, LocalDateTime updatedAt, String name) throws DomainConstraintException {
+    private EventualCustomer(String id, LocalDateTime createdAt, LocalDateTime updatedAt, String name) throws DomainConstraintException {
         super(id, createdAt, updatedAt);
         this.name = name;
 
