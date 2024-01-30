@@ -134,8 +134,8 @@ class CustomerTest {
     }
 
     @Test
-    @DisplayName("[CORE][DOMAIN][CUSTOMER] - should update only updatable fields")
-    void update_only_updatable_fields() throws DomainConstraintException {
+    @DisplayName("[CORE][DOMAIN][CUSTOMER] - should update only updatable fields to valid values")
+    void update_customer() throws DomainConstraintException {
         var formerCustomerData = MockCustomer.generateValidCustomer();
         var customerDataToUpdate = MockCustomer.generateValidCustomer();
 

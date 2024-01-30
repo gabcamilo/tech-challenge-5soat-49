@@ -14,14 +14,14 @@ public class Bundle extends BaseDomain {
     @NotBlank
     private final String name;
 
-    @Min(2)
+    @Size(min = 2)
     private final List<Product> products;
 
     @DecimalMin("0")
     @DecimalMax("1")
+    @NotNull
     private final BigDecimal discountPercentage;
 
-    @NotNull
     private final BigDecimal price;
 
     private Bundle(String id,
@@ -34,9 +34,10 @@ public class Bundle extends BaseDomain {
         this.name = name;
         this.products = products;
         this.discountPercentage = discountPercentage;
-        this.price = calculateTotalPrice();
 
         this.isValid();
+
+        this.price = calculateTotalPrice();
     }
 
     public static Bundle createNew(String name,
