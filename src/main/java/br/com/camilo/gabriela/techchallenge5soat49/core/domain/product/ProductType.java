@@ -4,7 +4,5 @@ public enum ProductType {
     DRINK,
     SIDE,
     DESERT,
-    SANDWICH,
-    BUNDLE,
-    ADDON;
+    SANDWICH;
 }

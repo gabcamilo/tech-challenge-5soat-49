@@ -41,4 +41,11 @@ public class ProductPersistencePortImpl implements ProductPersistencePort {
     public List<Product> listProductsByType(ProductType typeEnum) {
         return productRepository.findByType(typeEnum);
     }
+
+    @Override
+    public List<Product> listProductsByIds(List<String> products) {
+        return productRepository.findAllById(products);
+    }
+
+
 }

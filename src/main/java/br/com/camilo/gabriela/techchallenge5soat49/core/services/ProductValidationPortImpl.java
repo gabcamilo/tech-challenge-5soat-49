@@ -1,18 +1,19 @@
 package br.com.camilo.gabriela.techchallenge5soat49.core.services;
 
-import br.com.camilo.gabriela.techchallenge5soat49.core.domain.BaseDomain;
+import br.com.camilo.gabriela.techchallenge5soat49.core.domain.product.Product;
 import br.com.camilo.gabriela.techchallenge5soat49.core.exceptions.DataValidationException;
-import br.com.camilo.gabriela.techchallenge5soat49.core.ports.PersistencePort;
-import br.com.camilo.gabriela.techchallenge5soat49.core.validation.ValidationPort;
+import br.com.camilo.gabriela.techchallenge5soat49.core.ports.product.ProductPersistencePort;
+import br.com.camilo.gabriela.techchallenge5soat49.core.ports.product.ProductValidationPort;
 
-public class ProductValidationPortImpl implements ValidationPort {
+public class ProductValidationPortImpl implements ProductValidationPort {
+
     @Override
-    public void validateCreationalBusinessRules(BaseDomain domainItem, PersistencePort persistencePort) throws DataValidationException {
+    public void validateCreationalBusinessRules(Product domainItem, ProductPersistencePort persistencePort) throws DataValidationException {
 
     }
 
     @Override
-    public void validateUpdateBusinessRules(BaseDomain updatedData, BaseDomain persistedData, PersistencePort persistencePort) throws DataValidationException {
+    public void validateUpdateBusinessRules(Product updatedData, Product persistedData, ProductPersistencePort persistencePort) throws DataValidationException {
 
     }
 }

@@ -6,39 +6,25 @@ import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDateTime;
 
-public class Payment extends BaseDomain {
+public class Payment {
 
     @NotBlank
-    private final PaymentStatus status;
+    private PaymentStatus status;
 
-    private Payment(String id, LocalDateTime createdAt, LocalDateTime updatedAt, PaymentStatus status) throws DomainConstraintException {
-        super(id, createdAt, updatedAt);
-        this.status = status;
-
-        this.isValid();
-    }
-
-    public static Payment createNew() throws DomainConstraintException {
-        return new Payment(null, LocalDateTime.now(), LocalDateTime.now(), PaymentStatus.PENDING);
-    }
-
-    public static Payment create(String id,
-                                 LocalDateTime createdAt,
-                                 LocalDateTime updatedAt,
-                                 PaymentStatus status) throws DomainConstraintException {
-        return new Payment(id, createdAt, updatedAt, status);
-    }
-
-    public Payment update(Payment payment) throws DomainConstraintException {
-        return new Payment(
-                getId(),
-                getCreatedAt(),
-                LocalDateTime.now(),
-                payment.getStatus()
-        );
+    public Payment(){
+        this.status = PaymentStatus.PENDING;
     }
 
     public PaymentStatus getStatus() {
         return status;
     }
+
+    public void pay(){
+        this.status = PaymentStatus.APPROVED;
+    }
+
+    public void reject(){
+        this.status = PaymentStatus.REJECTED;
+    }
+
 }

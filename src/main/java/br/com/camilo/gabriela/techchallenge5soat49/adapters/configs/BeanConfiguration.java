@@ -1,8 +1,6 @@
 package br.com.camilo.gabriela.techchallenge5soat49.adapters.configs;
 
 import br.com.camilo.gabriela.techchallenge5soat49.TechChallenge5soat49Application;
-import br.com.camilo.gabriela.techchallenge5soat49.core.ports.bundle.BundlePersistencePort;
-import br.com.camilo.gabriela.techchallenge5soat49.core.ports.bundle.BundleValidationPort;
 import br.com.camilo.gabriela.techchallenge5soat49.core.ports.customer.CustomerPersistencePort;
 import br.com.camilo.gabriela.techchallenge5soat49.core.ports.customer.CustomerValidationPort;
 import br.com.camilo.gabriela.techchallenge5soat49.core.ports.order.OrderPersistencePort;
@@ -38,19 +36,10 @@ public class BeanConfiguration {
         return new ProductValidationPortImpl();
     }
 
-    @Bean
-    BundleServicePortImpl bundleServicePortImpl(BundlePersistencePort persistencePort, BundleValidationPort validationPort) {
-        return new BundleServicePortImpl(persistencePort, validationPort);
-    }
 
     @Bean
-    BundleValidationPortImpl bundleValidationPortImpl() {
-        return new BundleValidationPortImpl();
-    }
-
-    @Bean
-    OrderServicePortImpl orderServicePortImpl(OrderPersistencePort persistencePort, OrderValidationPort validationPort) {
-        return new OrderServicePortImpl(persistencePort, validationPort);
+    OrderServicePortImpl orderServicePortImpl(OrderPersistencePort persistencePort, OrderValidationPort validationPort, ProductPersistencePort productPersistencePort, CustomerPersistencePort customerPersistencePort) {
+        return new OrderServicePortImpl(persistencePort, validationPort, productPersistencePort, customerPersistencePort);
     }
 
     @Bean

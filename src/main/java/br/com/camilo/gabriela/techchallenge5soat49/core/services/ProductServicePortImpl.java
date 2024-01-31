@@ -1,6 +1,7 @@
 package br.com.camilo.gabriela.techchallenge5soat49.core.services;
 
 import br.com.camilo.gabriela.techchallenge5soat49.core.domain.product.Product;
+import br.com.camilo.gabriela.techchallenge5soat49.core.domain.product.ProductType;
 import br.com.camilo.gabriela.techchallenge5soat49.core.exceptions.DataValidationException;
 import br.com.camilo.gabriela.techchallenge5soat49.core.exceptions.DomainConstraintException;
 import br.com.camilo.gabriela.techchallenge5soat49.core.ports.product.ProductPersistencePort;
@@ -42,5 +43,10 @@ public class ProductServicePortImpl implements ProductServicePort {
     @Override
     public List<Product> list() {
         return persistencePort.list();
+    }
+
+    @Override
+    public List<Product> listProductsByType(ProductType typeEnum) {
+        return persistencePort.listProductsByType(typeEnum);
     }
 }

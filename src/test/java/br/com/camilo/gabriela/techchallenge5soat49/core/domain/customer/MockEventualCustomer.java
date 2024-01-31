@@ -26,13 +26,6 @@ public class MockEventualCustomer {
                 .create();
     }
 
-    public static EventualCustomer generateValidCustomer() throws DomainConstraintException {
-        MockEventualCustomer mockCustomer = generateMockData();
-        return EventualCustomer.create(
-                mockCustomer.getName()
-        );
-    }
-
     public String getName() {
         return name;
     }

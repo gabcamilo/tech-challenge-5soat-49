@@ -1,12 +1,10 @@
 package br.com.camilo.gabriela.techchallenge5soat49.core.domain.order;
 
 import br.com.camilo.gabriela.techchallenge5soat49.core.domain.customer.Customer;
-import br.com.camilo.gabriela.techchallenge5soat49.core.domain.customer.EventualCustomer;
 import br.com.camilo.gabriela.techchallenge5soat49.core.domain.customer.MockCustomer;
 import br.com.camilo.gabriela.techchallenge5soat49.core.domain.payment.Payment;
 import br.com.camilo.gabriela.techchallenge5soat49.core.domain.payment.PaymentStatus;
 import br.com.camilo.gabriela.techchallenge5soat49.core.exceptions.DomainConstraintException;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
@@ -29,8 +27,6 @@ public class MockOrder {
     private LocalDateTime updatedAt;
 
     private Customer customer;
-
-    private EventualCustomer eventualCustomer;
 
     @Size(min = 1)
     private List<OrderProduct> items;
@@ -68,8 +64,7 @@ public class MockOrder {
                 mockOrder.getCustomer(),
                 mockOrder.getItems(),
                 mockOrder.getPayment(),
-                mockOrder.getNote(),
-                mockOrder.getTotal()
+                mockOrder.getNote()
         );
     }
 
@@ -101,10 +96,6 @@ public class MockOrder {
 
     public Customer getCustomer() {
         return customer;
-    }
-
-    public EventualCustomer getEventualCustomer() {
-        return eventualCustomer;
     }
 
     public List<OrderProduct> getItems() {

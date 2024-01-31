@@ -24,8 +24,7 @@ public class OrderTest {
                     mockOrderData.getCustomer(),
                     mockOrderData.getItems(),
                     mockOrderData.getPayment(),
-                    mockOrderData.getNote(),
-                    mockOrderData.getTotal()
+                    mockOrderData.getNote()
             );
         });
     }
@@ -46,8 +45,7 @@ public class OrderTest {
                     mockOrderData.getCustomer(),
                     mockOrderData.getItems(),
                     mockOrderData.getPayment(),
-                    mockOrderData.getNote(),
-                    mockOrderData.getTotal()
+                    mockOrderData.getNote()
             );
         });
     }
