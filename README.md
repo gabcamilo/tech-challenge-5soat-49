@@ -8,51 +8,38 @@ Trabalho desenvolvido como forma de **avaliação** no curso de pós-graduação
   - **Gabriela Carvalho Camilo** - **RM348638**
 
 ---
-### Entregas
+## Entregas
 
-- [x] [Fase 1](#fase-1)
+- [x] Fase 1
   - [**Documentação**](FASE1.md)
-  - [**Release**]()
-- [ ] Fase 2 - *em breve*
+  - [**Release 1.0.0**]()
+- [ ] Fase 2
+  - [**Documentação**](FASE2.md)
+  - [**Release 2.0.0**]()
 - [ ] Fase 3 - *em breve*
 - [ ] Fase 4 - *em breve*
 - [ ] Fase 5 - *em breve*
 
 ---
 
-## Fase 1
-
-[[LINK] - **Documentação completa** da fase](FASE1.md)
-
-[**Release v1.0.0**]()
-
-### Aplicação proposta
+## Aplicação proposta
 
 Implementar uma aplicação de backend para automatizar o processo de pedidos de uma lanchonete. Para isto deve-se usar a arquitetura hexagonal e a implementação deve ser feita em um **monolito**.
 
-A proposta completa do trabalho pode ser encontrada [aqui](PROPOSTA_FASE1.md).
-
+A proposta completa do trabalho pode ser encontrada [aqui](PROPOSTA.md).
 
 ### Executando o Projeto Localmente
 
-O único requisito **obrigatório** para executar este projeto é ter o [Docker](https://www.docker.com) instalado.
+_Novas instruções contemplando as implementações com [Kubernetes](https://kubernetes.io/pt-br/) relativas à fase 2 em breve..._
 
-No diretório do projeto:
-    
-```bash
+#### _Legacy_
 
-    $ docker-compose up
-    
-``` 
-
-**URL Padrão da API: http://localhost:8080/api/v1**
-
-É recomendada a utilização do [Insomnia](https://insomnia.rest) para testar a API. A Collection para teste encontra-se no arquivo
-`insomnia-collection.json` na raiz do projeto.
+* [Fase 1 - Executando o Projeto Localmente](FASE1.md.#executando-o-projeto-localmente)
 
 ---
 
 ## Dicionário de Linguagem Ubíqua
+
 | Termo (pt-br) como acordado com os domain experts | Termo em inglês (quando presente no sistema) | Definição |
 | --- | --- | --- |
 | bebida | DRINK | qualquer bebida no cardápio, ex. suco, refrigerante, bebida alcoólica, etc |
