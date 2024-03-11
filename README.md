@@ -13,9 +13,9 @@ Trabalho desenvolvido como forma de **avaliação** no curso de pós-graduação
 - [x] Fase 1
   - [**Documentação**](FASE1.md)
   - [**Release 1.0.0**]()
-- [ ] Fase 2
+- [x] Fase 2
   - [**Documentação**](FASE2.md)
-  - [**Release 2.0.0**]()
+  - [**Release 2.1.0**]()
 - [ ] Fase 3 - *em breve*
 - [ ] Fase 4 - *em breve*
 - [ ] Fase 5 - *em breve*
@@ -24,17 +24,17 @@ Trabalho desenvolvido como forma de **avaliação** no curso de pós-graduação
 
 ## Aplicação proposta
 
-Implementar uma aplicação de backend para automatizar o processo de pedidos de uma lanchonete. Para isto deve-se usar a arquitetura hexagonal e a implementação deve ser feita em um **monolito**.
-
 A proposta completa do trabalho pode ser encontrada [aqui](PROPOSTA.md).
 
-### Executando o Projeto Localmente
+### Executando o Projeto
 
-_Novas instruções contemplando as implementações com [Kubernetes](https://kubernetes.io/pt-br/) relativas à fase 2 em breve..._
+#### Kubernetes
+
+_Novas instruções contemplando as implementações com [Kubernetes](https://kubernetes.io/pt-br/)
 
 #### _Legacy_
 
-* [Fase 1 - Executando o Projeto Localmente](FASE1.md.#executando-o-projeto-localmente)
+* [Fase 1 - Executando o Projeto Localmente (Docker)](FASE1.md.#executando-o-projeto-localmente)
 
 ---
 
