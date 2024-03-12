@@ -1,4 +1,4 @@
-# Tech Challenge - Fase 1
+# Tech Challenge - Proposta
 
 ## O Problema
 
